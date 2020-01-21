@@ -2,7 +2,7 @@
 A bot that adds reply functionality to Discord through webhooks
 
 ### Bot Invite Link
-https://discordapp.com/oauth2/authorize?client_id=458565259909660672&permissions=1610983424&scope=bot
+https://discordapp.com/oauth2/authorize?&client_id=497788291236495361&scope=bot&permissions=519232
 
 ## List:
 - ### [Description ](#description)
