@@ -10,7 +10,7 @@ class Reply(Cog):
     def __init__(self, bot):
         self.bot = bot
         self.message_to_user = {}
-        self.emoji = '✉'
+        self.emoji = b'\xe2\x9c\x89\xef\xb8\x8f'
         self.IMG_EXT = [".jpg", ".png", ".jpeg", ".gif", ".gifv"]
         self.VIDEO_EXT = ['.mp4', '.avi', '.flv', '.mov', 'wmv']
 
@@ -26,11 +26,11 @@ class Reply(Cog):
         Multiple users can react to the same message
         """
         with open("emoji", "r", encoding="utf-8") as f:
-            self.emoji = f.read()
+            self.emoji = f.read().encode('utf-8')
         #   If user has a message queued up to be replied to it will be overwritten
         if payload.user_id in self.message_to_user.keys():
             del self.message_to_user[payload.user_id]
-        if payload.emoji.name == self.emoji:
+        if payload.emoji.name == self.emoji.decode():
             channel = self.bot.get_channel(payload.channel_id)
             message = await channel.fetch_message(payload.message_id)
             user = self.bot.get_user(payload.user_id)
@@ -49,8 +49,8 @@ class Reply(Cog):
         #   payload.user_id actually returns the user whose emoji got removed
         #   instead of returning the id of the user who removed it
         with open("emoji", "r", encoding="utf-8") as f:
-            self.emoji = f.read()
-        if payload.emoji.name == self.emoji:
+            self.emoji = f.read().encode('utf-8')
+        if payload.emoji.name == self.emoji.decode():
             if self.message_to_user.get(payload.user_id):
                 del self.message_to_user[payload.user_id]
 
@@ -66,11 +66,11 @@ class Reply(Cog):
             webhook = await msg.channel.create_webhook(name="Placeholder")
             await self.send_message(msg.author, await self.create_embed(message.author, message), msg, webhook)
             await webhook.delete()
-            emoji = get(msg.channel.guild.emojis, name=self.emoji)
+            emoji = get(msg.channel.guild.emojis, name=self.emoji.decode())
             try:
                 await message.remove_reaction(emoji, msg.author)
             except InvalidArgument:
-                await message.remove_reaction(self.emoji, msg.author)
+                await message.remove_reaction(self.emoji.decode(), msg.author)
             await msg.delete()
 
     async def create_embed(self, author, author_message):
@@ -183,5 +183,5 @@ class Reply(Cog):
         await ctx.message.channel.send(f"Reply emoji changed to {emoji}")
         if '<' in emoji:
             emoji = emoji.split(':')[1]
-        with open("emoji", "w", encoding="utf-8") as f:
-            f.write(emoji)
+        with open("emoji", "wb") as f:
+            f.write(emoji.encode('utf-8'))
