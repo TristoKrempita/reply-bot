@@ -16,4 +16,4 @@ async def help(ctx):
     embed.add_field(name="Usage:", value="To reply to a message simply react to a message with ✉ and write your response")
     await ctx.message.channel.send(embed=embed)
 
-client.run('Njc3MTMxMDU0NDg1NjAyMzIz.XkPxdA.8w5MJxkzKaoNkNrypZYppLXQ0MI')
+client.run('BOT_TOKEN')
