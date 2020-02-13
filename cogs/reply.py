@@ -3,6 +3,7 @@ from discord.utils import get
 from discord.errors import InvalidArgument
 from discord import Webhook, AsyncWebhookAdapter, Embed, File
 import aiohttp
+from urllib.request import Request, urlopen
 import os
 
 
@@ -60,6 +61,17 @@ class Reply(Cog):
         When a message is sent check if that message is actually a reply
         to another message and if so delete it and turn it into a webhooked reply
         """
+        if msg.author.id in list(self.message_to_user.values()):
+            if msg.attachments:
+                req = Request(url=msg.attachments[0].url, headers={'User-Agent': 'Mozilla/5.0'})
+                webpage = urlopen(req).read()
+                with open(msg.attachments[0].filename, 'wb') as f:
+                    f.write(webpage)
+
+            message = await msg.channel.fetch_message(
+                dict(zip(self.message_to_user.values(), self.message_to_user.keys()))[msg.author.id])
+            del self.message_to_user[message.id]
+        
         if msg.author.id in list(self.message_to_user.keys()):
             message = await msg.channel.fetch_message(self.message_to_user[msg.author.id])
             del self.message_to_user[msg.author.id]
