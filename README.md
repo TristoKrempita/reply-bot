@@ -1,40 +1,38 @@
 # Reply Bot
-A bot that adds reply functionality to Discord through webhooks
+###### A bot that adds replying functionality to Discord through the power of webhooks
 
-### Bot Invite Link
-https://discordapp.com/oauth2/authorize?&client_id=497788291236495361&scope=bot&permissions=519232
-
-## List:
-- ### [Description ](#description)
-- ### [Demo ](#demo)
-- ### [Dependencies ](#dependencies)
+![Logo](https://i.imgur.com/CuZKP68.png)
 
 ## Description
 
-A bot that adds reply funcionality to Discord.
-Many chatting platforms have a reply feature where you can specify which message you are replying to when chatting
-Discord lacks that feature
-This bot uses webhooks to mimic a user (aside from having [BOT] next to their nickname and their nickname being white) and utilizes rich embeds 
-to display basic information and a hyperlink to the message itself
+A bot that adds reply funcionality to Discord.  
+Many chatting platforms have a reply feature where you can specify which message you are replying to when chatting.
+Discord lacks that feature (for now)  
+This bot uses utilizes webhooks and rich embeds to display message content and user information along with a hyperlink to the message itself
 
-## Demo
+# Demo
 
-![Replying to message](https://i.imgur.com/AzsgetY.gif)
+| Reply to any message|...with an image|...with a file|
+|-------------|------------|-------------|
+|![Replying to message](https://i.imgur.com/WLnGMF4.gif)| ![Replying to message](https://i.imgur.com/7a4aT08.gif) |![Replying to message](https://i.imgur.com/KSdAWf2.gif)|
 
-#### See exactly which message a reply was for
-![Replying to message](https://i.imgur.com/LHJG4X1.gif)
+|Choose which emoji to reply with|
+|-------------------------------|
+|![Replying to message](https://i.imgur.com/iouSZiL.gif)|
 
-#### Reply to images, videos or any other type of file
-![Replying to message](https://i.imgur.com/Qd1Htz7.gif) ![Replying to message](https://i.imgur.com/rYaGtih.gif)
-![Replying to message](https://i.imgur.com/hCvhlKo.gif)
-
-#### Reply images videos and files with other videos images and files (all combinations are supported)
-![Replying to message](https://i.imgur.com/u3OMK38.gif)
-
-#### Change the emoji you want to use as a dedicated reply emoji
-![Replying to message](https://i.imgur.com/OgZMXMW.gif)
-![Replying to message](https://i.imgur.com/Aus08pX.gif)
 
 ## Dependencies
 
-- [discord.py==1.2.3](https://pypi.org/project/discord.py/)
+- [discord.py==1.3.1](https://pypi.org/project/discord.py/)
+
+
+## Other  
+If you like the concept and want to support the upkeep of this and other projects consider donating  
+[![Donate](https://i.imgur.com/MJvspK0.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MQB3UM74ABLP6&source=url)
+
+
+### [Bot invite link](https://discordapp.com/oauth2/authorize?&client_id=497788291236495361&scope=bot&permissions=519232)
+This is just a singular instance of the bot running on a single dyno on [Heroku](https://heroku.com/).  
+It is just for light testing as I haven't got a hosting infrastructure (meaning everyone shares resources)  
+
+
