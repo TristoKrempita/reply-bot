@@ -31,7 +31,7 @@ If you like the concept and want to support the upkeep of this and other project
 [![Donate](https://i.imgur.com/MJvspK0.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MQB3UM74ABLP6&source=url)
 
 
-### [Bot invite link](https://discordapp.com/oauth2/authorize?&client_id=497788291236495361&scope=bot&permissions=519232)
+### [Bot invite link](https://discordapp.com/oauth2/authorize?client_id=497788291236495361&scope=bot&permissions=537128000)
 This is just a singular instance of the bot running on a single dyno on [Heroku](https://heroku.com/).  
 It is just for light testing as I haven't got a hosting infrastructure (meaning everyone shares resources)  
 
